@@ -24,13 +24,36 @@ function concatName(arrayString) {
 }
 
 // Desafio 5
-function footballPoints() {
-  // seu código aqui
+function footballPoints(wins, ties) {
+  const victoryPoints = wins * 3;
+  const tiePoins = ties * 1;
+  const totalPoins = tiePoins + victoryPoints;
+  return totalPoins;
+}
+
+function countRepetitionOfNumbers(numbersArray) {
+  const numbersCount = {};
+  for (const number of numbersArray) {
+    if (!numbersCount[number]) {
+      numbersCount[number] = 0;
+    }
+    numbersCount[number] += 1;
+  }
+  return numbersCount;
 }
 
 // Desafio 6
-function highestCount() {
-  // seu código aqui
+function highestCount(numbersArray) {
+  const numbersCount = countRepetitionOfNumbers(numbersArray);
+  const numbersArrayKeys = [];
+  for (const key in numbersCount) {
+    // useless 'if' condition just because of ESLint!
+    if (numbersArrayKeys) {
+      numbersArrayKeys.push(key);
+    }
+  }
+  const highestNumberKey = Math.max(...numbersArrayKeys);
+  return numbersCount[highestNumberKey];
 }
 
 // Desafio 7
