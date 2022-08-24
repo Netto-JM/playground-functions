@@ -65,12 +65,6 @@ function catAndMouse(mouse, cat1, cat2) {
   return 'os gatos trombam e o rato foge';
 }
 
-/* Retorne a string 'fizz' para cada número do array que seja divisível apenas por 3;
-Retorne a string 'buzz' para cada número do array que seja divisível apenas por 5;
-Retorne a string 'fizzBuzz' para cada número do array que seja divisível por 3 e 5;
-Retorne a string 'bug!' para cada número do array que não seja dividido por 3 nem por 5.
-Exemplo: caso o parâmetro seja [2, 15, 7, 9, 45], sua função deverá retornar ['bug!', 'fizzBuzz', 'bug!', 'fizz', 'fizzBuzz']. */
-
 function isFizz(fizz, buzz) {
   return fizz && !buzz;
 }
@@ -103,11 +97,44 @@ function fizzBuzz(numbersArray) {
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(string) {
+  const arrayString = string.split('');
+  console.log(arrayString);
+  const encodeObject = {
+    a: 1,
+    e: 2,
+    i: 3,
+    o: 4,
+    u: 5,
+  };
+  for (let index = 0; index < arrayString.length; index += 1) {
+    if (arrayString[index] in encodeObject) {
+      const stringNumber = encodeObject[arrayString[index]];
+      arrayString[index] = stringNumber;
+    }
+  }
+  const encodedString = arrayString.join('');
+  return encodedString;
 }
-function decode() {
-  // seu código aqui
+
+function decode(string) {
+  const arrayString = string.split('');
+  console.log(arrayString);
+  const decodeObject = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
+  for (let index = 0; index < arrayString.length; index += 1) {
+    if (arrayString[index] in decodeObject) {
+      const stringNumber = decodeObject[arrayString[index]];
+      arrayString[index] = stringNumber;
+    }
+  }
+  const decodedString = arrayString.join('');
+  return decodedString;
 }
 
 // Desafio 10
