@@ -57,13 +57,49 @@ function highestCount(numbersArray) {
 }
 
 // Desafio 7
-function catAndMouse() {
-  // seu código aqui
+function catAndMouse(mouse, cat1, cat2) {
+  const catOneDistance = Math.abs(cat1 - mouse);
+  const catTwoDistance = Math.abs(cat2 - mouse);
+  if (catOneDistance < catTwoDistance) return 'cat1';
+  if (catOneDistance > catTwoDistance) return 'cat2';
+  return 'os gatos trombam e o rato foge';
+}
+
+/* Retorne a string 'fizz' para cada número do array que seja divisível apenas por 3;
+Retorne a string 'buzz' para cada número do array que seja divisível apenas por 5;
+Retorne a string 'fizzBuzz' para cada número do array que seja divisível por 3 e 5;
+Retorne a string 'bug!' para cada número do array que não seja dividido por 3 nem por 5.
+Exemplo: caso o parâmetro seja [2, 15, 7, 9, 45], sua função deverá retornar ['bug!', 'fizzBuzz', 'bug!', 'fizz', 'fizzBuzz']. */
+
+function isFizz(fizz, buzz) {
+  return fizz && !buzz;
+}
+
+function isBuzz(fizz, buzz) {
+  return !fizz && buzz;
+}
+
+function isFizzBuzz(fizz, buzz) {
+  return fizz && buzz;
+}
+
+function fizzOrBuzz(fizz, buzz) {
+  if (isFizz(fizz, buzz)) return 'fizz';
+  if (isBuzz(fizz, buzz)) return 'buzz';
+  if (isFizzBuzz(fizz, buzz)) return 'fizzBuzz';
+  return 'bug!';
 }
 
 // Desafio 8
-function fizzBuzz() {
-  // seu código aqui
+function fizzBuzz(numbersArray) {
+  const fizzBuzzArray = [];
+  for (const number of numbersArray) {
+    const fizz = number % 3 === 0;
+    const buzz = number % 5 === 0;
+    const fizzBuzzString = fizzOrBuzz(fizz, buzz);
+    fizzBuzzArray.push(fizzBuzzString);
+  }
+  return fizzBuzzArray;
 }
 
 // Desafio 9
