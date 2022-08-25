@@ -9,8 +9,15 @@ function triangleCheck() {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(string) {
+  let waterCups = 0;
+  const numbers = string.replace(/[^0-9]/g, '');
+  for (const number of numbers) {
+    waterCups += +number;
+  }
+  const cup = (waterCups > 1) ? 'copos' : 'copo';
+  const suggestion = `${waterCups} ${cup} de água`;
+  return suggestion;
 }
 
 module.exports = {
