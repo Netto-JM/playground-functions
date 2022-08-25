@@ -17,8 +17,8 @@ function splitSentence(string) {
 
 // Desafio 4
 function concatName(arrayString) {
-  const firstElement = arrayString.shift();
-  const lastElement = arrayString.pop();
+  const firstElement = arrayString[0];
+  const lastElement = arrayString[arrayString.length - 1];
   const sentence = `${lastElement}, ${firstElement}`;
   return sentence;
 }
