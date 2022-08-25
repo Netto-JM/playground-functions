@@ -32,10 +32,21 @@ function checkPhoneValidity(numbersArray) {
   return '';
 }
 
+function formatPhoneNumber(phoneNumber) {
+  const prefix = phoneNumber.slice(0, 2);
+  const firstPart = phoneNumber.slice(2, 7);
+  const lastPart = phoneNumber.slice(-4);
+  const formatedPhoneNumber = `(${prefix}) ${firstPart}-${lastPart}`;
+  return formatedPhoneNumber;
+}
+
 // Desafio 11
 function generatePhoneNumber(numbersArray) {
   const errorMessage = checkPhoneValidity(numbersArray);
   if (errorMessage) return errorMessage;
+  const phoneNumber = numbersArray.join('');
+  const formatedPhoneNumber = formatPhoneNumber(phoneNumber);
+  return formatedPhoneNumber;
 }
 
 // Desafio 12
