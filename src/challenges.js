@@ -96,40 +96,11 @@ function fizzBuzz(numbersArray) {
   return fizzBuzzArray;
 }
 
-// Desafio 9
-function encode(string) {
+function decodeOrEncode(string, object) {
   const arrayString = string.split('');
-  console.log(arrayString);
-  const encodeObject = {
-    a: 1,
-    e: 2,
-    i: 3,
-    o: 4,
-    u: 5,
-  };
   for (let index = 0; index < arrayString.length; index += 1) {
-    if (arrayString[index] in encodeObject) {
-      const stringNumber = encodeObject[arrayString[index]];
-      arrayString[index] = stringNumber;
-    }
-  }
-  const encodedString = arrayString.join('');
-  return encodedString;
-}
-
-function decode(string) {
-  const arrayString = string.split('');
-  console.log(arrayString);
-  const decodeObject = {
-    1: 'a',
-    2: 'e',
-    3: 'i',
-    4: 'o',
-    5: 'u',
-  };
-  for (let index = 0; index < arrayString.length; index += 1) {
-    if (arrayString[index] in decodeObject) {
-      const stringNumber = decodeObject[arrayString[index]];
+    if (arrayString[index] in object) {
+      const stringNumber = object[arrayString[index]];
       arrayString[index] = stringNumber;
     }
   }
@@ -137,9 +108,44 @@ function decode(string) {
   return decodedString;
 }
 
+// Desafio 9
+function encode(string) {
+  const encodeObject = {
+    a: 1,
+    e: 2,
+    i: 3,
+    o: 4,
+    u: 5,
+  };
+  const encodedString = decodeOrEncode(string, encodeObject);
+  return encodedString;
+}
+
+function decode(string) {
+  const decodeObject = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
+  const decodedString = decodeOrEncode(string, decodeObject);
+  return decodedString;
+}
+
 // Desafio 10
-function techList() {
-  // seu código aqui
+function techList(techNames, personName) {
+  if (techNames.length === 0) return 'Vazio!';
+  techNames.sort();
+  const techArray = [];
+  let techObject = {};
+  for (let index = 0; index < techNames.length; index += 1) {
+    techObject = {};
+    techObject.tech = techNames[index];
+    techObject.name = personName;
+    techArray.push(techObject);
+  }
+  return techArray;
 }
 
 module.exports = {
